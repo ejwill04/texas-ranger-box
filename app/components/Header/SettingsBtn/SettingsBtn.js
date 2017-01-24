@@ -1,8 +1,13 @@
 import React from 'react';
+import './settingsBtn-style';
 
 const SettingsBtn = (props) => {
   return (
-    <button onClick={() => props.handleClick() }>Settings</button>
+    <input
+      type='submit'
+      value='Settings'
+      onClick={() => props.handleClick() }
+      />
   );
 }
 
