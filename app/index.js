@@ -1,12 +1,12 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom';
 import './styles'
-import Header from './components/Header/Header'
+import App from './components/app';
+// import Header from './components/Header/Header'
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexRedirect } from 'react-router';
 
-const App = () => {
-  return (
-    <Header />
-  );
-}
-
-render(<App />, document.querySelector('.application'));
+ReactDOM.render(
+  <Router history={browserHistory}>
+    <Route path="/" component={App} />
+  </Router>
+, document.getElementById('application'));
