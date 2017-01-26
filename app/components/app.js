@@ -14,11 +14,15 @@ export default class App extends Component {
       randomJoke: '',
       jokes: '',
       numOfJokes: '',
+      firstName: 'Chuck',
+      lastName: 'Norris',
     };
   }
 
   componentDidMount() {
-    fetch('https://api.icndb.com/jokes/random?escape=javascript')
+    const firstName = this.state.firstName;
+    const lastName = this.state.lastName;
+    fetch(`https://api.icndb.com/jokes/random?escape=javascript&firstName=${firstName}&lastName=${lastName}`)
       .then((response) => {
         return response.json()
       }).then((obj) => {
@@ -30,13 +34,22 @@ export default class App extends Component {
     this.setState({ numOfJokes: +e.target.value });
   }
 
+  handleNewName(input) {
+    let fullName = input ? fullName = input.target.value : 'Chuck Norris';
+    let nameArray = fullName.split(' ');
+    this.setState({ firstName: nameArray[0], lastName: nameArray[1] })
+  }
+
   getJokes(num) {
-    fetch(`https://api.icndb.com/jokes/random/${num}?escape=javascript`)
+    const firstName = this.state.firstName;
+    const lastName = this.state.lastName;
+    fetch(`https://api.icndb.com/jokes/random/${num}?escape=javascript&firstName=${firstName}&lastName=${lastName}`)
       .then((response) => {
         return response.json()
       }).then((obj) => {
         this.setState({ jokes: obj});
       });
+      this.componentDidMount();
   }
 
   render() {
@@ -44,7 +57,8 @@ export default class App extends Component {
       jokes: this.state.jokes,
       acceptInput: this.acceptInput.bind(this),
       numOfJokes: this.state.numOfJokes,
-      getJokes: this.getJokes.bind(this)
+      getJokes: this.getJokes.bind(this),
+      handleNewName: this.handleNewName.bind(this)
     })
 
     return (
