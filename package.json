@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server -d --watch",
+    "start": "webpack-dev-server --inline --content-base --history-api-fallback",
     "test": "mocha -w --compilers js:babel-core/register --require helpers/test-setup.js app/**/*.spec.js"
   },
   "author": "",
@@ -18,6 +18,11 @@
     "css-loader": "^0.26.1",
     "css-modules-require-hook": "^4.0.5",
     "enzyme": "^2.7.1",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "node-sass": "^4.3.0",

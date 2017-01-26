@@ -1,0 +1,10 @@
+.render-jokes-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.render-jokes {
+  background-color: rgba(0,0,0,0.2);
+  width: 30%;
+  margin: 10px;
+}
