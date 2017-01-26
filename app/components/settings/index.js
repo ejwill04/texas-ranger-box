@@ -1,15 +1,10 @@
 import React from 'react';
-import { GenerateJokes } from '../generateJokes/GenerateJokes';
+import GenerateJokes from '../generateJokes/GenerateJokes';
 
-export const Settings = (props) => {
+const Settings = (props) => {
   console.log('in settings');
   return (
     <div>
-      <GenerateJokes
-        acceptInput={props.acceptInput}
-        jokes={props.params.jokes}
-        numOfJokes={props.numOfJokes}
-        getJokes={props.getJokes} />
       <div className='settings-wrapper'>
         Set Name:
         <input
@@ -25,5 +20,7 @@ export const Settings = (props) => {
         Parental Controls:
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default Settings;

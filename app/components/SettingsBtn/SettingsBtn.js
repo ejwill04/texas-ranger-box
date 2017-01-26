@@ -12,6 +12,6 @@ const SettingsBtn = () => {
         />
     </Link>
   );
-}
+};
 
 export default SettingsBtn;

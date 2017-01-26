@@ -1,11 +1,18 @@
 import React from 'react';
-import './styles'
-import { GenerateJokes } from '../generateJokes/GenerateJokes';
+import './styles';
+import GenerateJokes from '../generateJokes/GenerateJokes';
 
-export const DisplayJokes = (props) => {
-  let jokesObj = props.jokes.value || [];
-  let jokeArena = jokesObj.map(obj => <div className='render-jokes' key={obj.id}>{obj.joke}</div>);
-  console.log(jokesObj);
+const DisplayJokes = (props) => {
+  const jokesObj = props.jokes.value || [];
+  const jokeArena = jokesObj.map(obj =>
+    <div
+      className='render-jokes'
+      key={obj.id}>
+      {obj.joke}
+      <div
+        onClick={ () => props.addToFavs(obj.id) }
+        >&#9733;</div>
+    </div>);
   return (
     <div>
       <GenerateJokes
@@ -17,5 +24,7 @@ export const DisplayJokes = (props) => {
         {jokeArena}
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default DisplayJokes;

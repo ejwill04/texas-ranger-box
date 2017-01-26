@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
+import FavoritesBtn from '../favoritesBtn';
 
-export const GenerateJokes = (props) => {
+const GenerateJokes = (props) => {
   return (
     <div>
       <Link
@@ -19,10 +20,12 @@ export const GenerateJokes = (props) => {
         className='numOfJokes'
         type='number'
         value={ props.numOfJokes }
-        onChange={ (e) => {props.acceptInput(e)} }>
+        onChange={ (e) => { props.acceptInput(e) }
+      }>
       </input>
-      <button
-        >Favorites</button>
+      <FavoritesBtn />
     </div>
-  )
-}
+  );
+};
+
+export default GenerateJokes;
