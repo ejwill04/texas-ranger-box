@@ -29,4 +29,10 @@ const DisplayJokes = (props) => {
   );
 };
 
+DisplayJokes.propTypes = {
+  id: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
+  handleClick: React.PropTypes.func
+}
+
 export default DisplayJokes;

@@ -2,10 +2,6 @@ import React from 'react';
 import './settings-style';
 import GenerateJokes from '../generateJokes/GenerateJokes';
 
-// const checkedStatus = () => {
-//   return 0 ? 1 : 0;
-// };
-
 const Settings = (props) => {
   return (
     <div>
@@ -14,7 +10,7 @@ const Settings = (props) => {
           Set Name:
           <input
             className='set-name-input'
-            onChange={ (e) => props.handleNewName(e) }>
+            onChange={ e => props.handleNewName(e) }>
           </input>
           <button
             onClick={() => props.getJokes(props.numOfJokes)}

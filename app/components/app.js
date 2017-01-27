@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { render } from 'react-dom'
-import '../styles'
-import Header from './Header/Header'
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 import { Link } from 'react-router';
+import '../styles';
+import Header from './Header/Header';
 import GenerateJokes from './generateJokes/GenerateJokes';
 import RandomJokeDisplay from './randomJokeDisplay/randomJokeDisplay';
 import DisplayJokes from './displayJokes/DisplayJokes';
@@ -25,9 +25,8 @@ export default class App extends Component {
     const firstName = this.state.firstName;
     const lastName = this.state.lastName;
     fetch(`https://api.icndb.com/jokes/random?escape=javascript&firstName=${firstName}&lastName=${lastName}`)
-      .then((response) => {
-        return response.json();
-      }).then((obj) => {
+      .then(response => response.json())
+      .then((obj) => {
         this.setState({ randomJoke: obj.value.joke });
       });
   }
@@ -36,8 +35,12 @@ export default class App extends Component {
     e.target.classList.toggle('favStar-clicked');
     const array = this.state.jokes.value;
     const object = array.find(obj => obj.id === id);
-    object.favorites = true;
-    this.state.favorites.push(object);
+    object.favorites = !object.favorites;
+    if (object.favorites) {
+      this.state.favorites.push(object);
+    } else {
+      this.state.favorites.pop(object);
+    }
     this.setState({ favorites: this.state.favorites });
   }
 
@@ -61,9 +64,8 @@ export default class App extends Component {
 
   getJokes() {
     fetch(`http://api.icndb.com/jokes/random/${this.state.numOfJokes}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}&${this.state.parentalControls}`)
-      .then((response) => {
-        return response.json();
-      }).then((obj) => {
+      .then(response => response.json())
+      .then((obj) => {
         obj.value.map(joke => Object.assign(joke, { favorites: false }));
         this.setState({ jokes: obj });
       });
