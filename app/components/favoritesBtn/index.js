@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import './favoritesBtn-styles';
-// import './settingsBtn-style';
 
 const FavoritesBtn = (props) => {
   return (

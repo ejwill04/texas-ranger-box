@@ -9,7 +9,7 @@ const GenerateJokes = (props) => {
       <div className='input-num'>
         <Link to='/jokes'>
           <button
-            className='getJokesBtn'
+            className='get-jokes-btn'
             disabled={props.numOfJokes === undefined}
             onClick={() => props.getJokes() }>
             Get Jokes
