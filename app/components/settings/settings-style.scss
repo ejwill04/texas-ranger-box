@@ -1,3 +1,20 @@
+.settings-wrapper {
+  background-color: rgba(0,0,0,0.2);
+  height: 150px;
+}
+
+button {
+  color: black;
+  background-color: rgb(192, 192, 192);
+  border: none;
+  font-size: 10px;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  top: 20px;
+  right: 20px;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -17,7 +34,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: green;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -35,11 +52,11 @@
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: red;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px red;
 }
 
 input:checked + .slider:before {

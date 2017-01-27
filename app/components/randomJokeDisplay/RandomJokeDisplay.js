@@ -1,8 +1,9 @@
 import React from 'react';
+import './randomJoke-styles';
 
 const RandomJokeDisplay = (props) => {
   return (
-    <div>
+    <div className='random-joke'>
       {props.joke}
     </div>
   );
