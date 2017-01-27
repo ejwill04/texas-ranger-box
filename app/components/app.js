@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router';
 import '../styles';
-import Header from './Header/Header';
-import GenerateJokes from './generateJokes/GenerateJokes';
-import RandomJokeDisplay from './randomJokeDisplay/randomJokeDisplay';
-import DisplayJokes from './displayJokes/DisplayJokes';
+import Header from './Header';
+import GenerateJokes from './generateJokes';
+import RandomJokeDisplay from './randomJokeDisplay';
+import DisplayJokes from './displayJokes';
 
 export default class App extends Component {
   constructor() {
@@ -22,9 +22,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const firstName = this.state.firstName;
-    const lastName = this.state.lastName;
-    fetch(`https://api.icndb.com/jokes/random?escape=javascript&firstName=${firstName}&lastName=${lastName}`)
+    // const firstName = this.state.firstName;
+    // const lastName = this.state.lastName;
+    fetch(`https://api.icndb.com/jokes/random?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}`)
       .then(response => response.json())
       .then((obj) => {
         this.setState({ randomJoke: obj.value.joke });

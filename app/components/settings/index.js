@@ -1,6 +1,6 @@
 import React from 'react';
 import './settings-style';
-import GenerateJokes from '../generateJokes/GenerateJokes';
+import GenerateJokes from '../generateJokes';
 
 const Settings = (props) => {
   return (

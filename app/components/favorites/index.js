@@ -1,6 +1,5 @@
 import React from 'react';
-// import './styles'
-import GenerateJokes from '../generateJokes/GenerateJokes';
+import GenerateJokes from '../generateJokes/';
 
 const DisplayFavorites = (props) => {
   const favoritesArena = props.favorites.map(obj => <div className='render-jokes' key={obj.id}>{obj.joke}</div>);

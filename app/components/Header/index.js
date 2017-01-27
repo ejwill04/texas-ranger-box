@@ -1,7 +1,7 @@
 import React from 'react';
 import './header-style';
 
-import SettingsBtn from '../SettingsBtn/SettingsBtn';
+import SettingsBtn from '../SettingsBtn/';
 
 const Header = (props) => {
   return (

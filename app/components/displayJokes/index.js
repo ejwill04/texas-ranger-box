@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles';
-import GenerateJokes from '../generateJokes/GenerateJokes';
+import GenerateJokes from '../generateJokes/';
 
 const DisplayJokes = (props) => {
   const jokesObj = props.jokes.value || [];
