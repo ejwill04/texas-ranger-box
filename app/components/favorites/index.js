@@ -3,7 +3,7 @@ import React from 'react';
 import GenerateJokes from '../generateJokes/GenerateJokes';
 
 const DisplayFavorites = (props) => {
-  const favoritesArena =  props.favorites.map(obj => <div className='render-favorites' key={obj.id}>{obj.joke}</div>);
+  const favoritesArena =  props.favorites.map(obj => <div className='render-jokes' key={obj.id}>{obj.joke}</div>);
   return (
     <div>
       <GenerateJokes
@@ -11,7 +11,7 @@ const DisplayFavorites = (props) => {
         jokes={props.params.jokes}
         numOfJokes={props.numOfJokes}
         getJokes={props.getJokes} />
-      <div className='render-favorites-wrapper'>
+      <div className='render-jokes-wrapper'>
         {favoritesArena}
       </div>
     </div>

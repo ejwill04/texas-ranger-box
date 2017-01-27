@@ -17,6 +17,7 @@ export default class App extends Component {
       firstName: 'Chuck',
       lastName: 'Norris',
       favorites: [],
+      parentalControls: '',
     };
   }
 
@@ -25,7 +26,7 @@ export default class App extends Component {
     const lastName = this.state.lastName;
     fetch(`https://api.icndb.com/jokes/random?escape=javascript&firstName=${firstName}&lastName=${lastName}`)
       .then((response) => {
-        return response.json()
+        return response.json();
       }).then((obj) => {
         this.setState({ randomJoke: obj.value.joke });
       });
@@ -39,6 +40,14 @@ export default class App extends Component {
     this.setState({ favorites: this.state.favorites });
   }
 
+  toggleParental() {
+    if (this.state.parentalControls === '') {
+      this.setState({ parentalControls: 'limitTo=[explicit]' });
+    } else {
+      this.setState({ parentalControls: '' });
+    }
+  }
+
   acceptInput(e) {
     this.setState({ numOfJokes: +e.target.value });
   }
@@ -49,17 +58,14 @@ export default class App extends Component {
     this.setState({ firstName: nameArray[0], lastName: nameArray[1] });
   }
 
-  getJokes(num) {
-    const firstName = this.state.firstName;
-    const lastName = this.state.lastName;
-    fetch(`https://api.icndb.com/jokes/random/${num}?escape=javascript&firstName=${firstName}&lastName=${lastName}`)
+  getJokes() {
+    fetch(`http://api.icndb.com/jokes/random/${this.state.numOfJokes}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}&${this.state.parentalControls}`)
       .then((response) => {
         return response.json();
       }).then((obj) => {
         obj.value.map(joke => Object.assign(joke, { favorites: false }));
         this.setState({ jokes: obj });
       });
-    this.componentDidMount();
   }
 
   render() {
@@ -71,6 +77,8 @@ export default class App extends Component {
       handleNewName: this.handleNewName.bind(this),
       addToFavs: this.addToFavs.bind(this),
       favorites: this.state.favorites,
+      toggleParental: this.toggleParental.bind(this),
+      explicitStatus: this.state.parentalControls,
     });
 
     return (
@@ -82,9 +90,3 @@ export default class App extends Component {
     );
   }
 }
-
-// <GenerateJokes
-//   acceptInput={this.acceptInput.bind(this)}
-//   numOfJokes={this.state.numOfJokes}
-//   getJokes={this.getJokes.bind(this)}
-// />

@@ -1,8 +1,12 @@
 import React from 'react';
+import './settings-style';
 import GenerateJokes from '../generateJokes/GenerateJokes';
 
+// const checkedStatus = () => {
+//   return 0 ? 1 : 0;
+// };
+
 const Settings = (props) => {
-  console.log('in settings');
   return (
     <div>
       <div className='settings-wrapper'>
@@ -18,6 +22,14 @@ const Settings = (props) => {
           onClick={ () => props.handleNewName() }
           >Reset</button>
         Parental Controls:
+        <label className='switch'>
+          <input
+            type='checkbox'
+            checked={props.explicitStatus}
+            onClick={() => props.toggleParental()}
+            />
+          <div className='slider round'></div>
+        </label>
       </div>
     </div>
   );

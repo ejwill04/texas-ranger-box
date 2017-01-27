@@ -9,7 +9,7 @@ const GenerateJokes = (props) => {
         to='/jokes'
         >
         <button
-          onClick={() => props.getJokes(props.numOfJokes) }
+          onClick={() => props.getJokes() }
           >
           Get Jokes
         </button>
