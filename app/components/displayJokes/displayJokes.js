@@ -10,8 +10,10 @@ const DisplayJokes = (props) => {
       key={obj.id}>
       {obj.joke}
       <div
-        onClick={ () => props.addToFavs(obj.id) }
-        >&#9733;</div>
+        className="favStar"
+        onClick={ e => props.addToFavs(obj.id, e) }
+        >&#9733;
+      </div>
     </div>);
   return (
     <div>

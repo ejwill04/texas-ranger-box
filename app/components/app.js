@@ -32,7 +32,8 @@ export default class App extends Component {
       });
   }
 
-  addToFavs(id) {
+  addToFavs(id, e) {
+    e.target.classList.toggle('favStar-clicked');
     const array = this.state.jokes.value;
     const object = array.find(obj => obj.id === id);
     object.favorites = true;
