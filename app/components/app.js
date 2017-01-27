@@ -84,7 +84,7 @@ export default class App extends Component {
 
     return (
       <div>
-        <Header />
+        <Header firstName={this.state.firstName} lastName={this.state.lastName} />
         <RandomJokeDisplay joke={this.state.randomJoke}/>
         {cloneElement}
       </div>

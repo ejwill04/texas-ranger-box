@@ -13,6 +13,7 @@ const Settings = (props) => {
         Set Name:
         <input
           className='set-name-input'
+          value={e.target.value}
           onChange={ (e) => props.handleNewName(e) }>
         </input>
         <button
