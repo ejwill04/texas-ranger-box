@@ -13,9 +13,13 @@ const Settings = (props) => {
             onChange={ e => props.handleNewName(e) }>
           </input>
           <button
+            className='set-button'
+            disabled={props.firstName === 'Chuck'}
             onClick={() => props.getJokes(props.numOfJokes)}
             >Set</button>
           <button
+            className='reset-button'
+            disabled={props.firstName === 'Chuck'}
             onClick={ () => props.handleNewName() }
             >Reset</button>
         </div>
@@ -33,6 +37,15 @@ const Settings = (props) => {
       </div>
     </div>
   );
+};
+
+Settings.propTypes = {
+  favorites: React.PropTypes.array,
+  jokes: React.PropTypes.array,
+  addToFavs: React.PropTypes.func,
+  acceptInput: React.PropTypes.func,
+  numOfJokes: React.PropTypes.number,
+  getJokes: React.PropTypes.func,
 };
 
 export default Settings;

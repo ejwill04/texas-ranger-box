@@ -9,4 +9,8 @@ const RandomJokeDisplay = (props) => {
   );
 };
 
+RandomJokeDisplay.propTypes = {
+  joke: React.PropTypes.string,
+};
+
 export default RandomJokeDisplay;

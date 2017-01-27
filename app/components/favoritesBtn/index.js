@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import './favoritesBtn-styles';
 // import './settingsBtn-style';
 
-const FavoritesBtn = () => {
+const FavoritesBtn = (props) => {
   return (
     <Link to='/favorites'>
       <input
@@ -13,6 +13,10 @@ const FavoritesBtn = () => {
         />
     </Link>
   );
+};
+
+FavoritesBtn.propTypes = {
+  favorites: React.PropTypes.array,
 };
 
 export default FavoritesBtn;

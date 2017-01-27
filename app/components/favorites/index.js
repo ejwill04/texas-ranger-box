@@ -18,4 +18,13 @@ const DisplayFavorites = (props) => {
   );
 };
 
+DisplayFavorites.propTypes = {
+  favorites: React.PropTypes.array,
+  jokes: React.PropTypes.array,
+  addToFavs: React.PropTypes.func,
+  acceptInput: React.PropTypes.func,
+  numOfJokes: React.PropTypes.number,
+  getJokes: React.PropTypes.func,
+};
+
 export default DisplayFavorites;

@@ -10,6 +10,7 @@ const GenerateJokes = (props) => {
         <Link to='/jokes'>
           <button
             className='getJokesBtn'
+            disabled={props.numOfJokes === undefined}
             onClick={() => props.getJokes() }>
             Get Jokes
           </button>
@@ -27,6 +28,12 @@ const GenerateJokes = (props) => {
       <FavoritesBtn />
     </div>
   );
+};
+
+GenerateJokes.propTypes = {
+  acceptInput: React.PropTypes.func,
+  numOfJokes: React.PropTypes.number,
+  getJokes: React.PropTypes.func,
 };
 
 export default GenerateJokes;

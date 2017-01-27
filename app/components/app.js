@@ -13,7 +13,7 @@ export default class App extends Component {
     this.state = {
       randomJoke: '',
       jokes: [],
-      numOfJokes: '',
+      numOfJokes: undefined,
       firstName: 'Chuck',
       lastName: 'Norris',
       favorites: [],
@@ -82,6 +82,7 @@ export default class App extends Component {
       favorites: this.state.favorites,
       toggleParental: this.toggleParental.bind(this),
       explicitStatus: this.state.parentalControls,
+      firstName: this.state.firstName,
     });
 
     return (

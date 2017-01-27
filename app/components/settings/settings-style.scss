@@ -13,6 +13,10 @@
   vertical-align: top;
 }
 
+.set-button:disabled, .reset-button:disabled {
+  background-color: rgb(192, 192, 192);
+}
+
 button {
   color: black;
   background-color: rgb(192, 192, 192);

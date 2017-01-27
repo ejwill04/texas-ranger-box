@@ -30,9 +30,11 @@ const DisplayJokes = (props) => {
 };
 
 DisplayJokes.propTypes = {
-  id: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  handleClick: React.PropTypes.func
-}
+  jokes: React.PropTypes.array,
+  addToFavs: React.PropTypes.func,
+  acceptInput: React.PropTypes.func,
+  numOfJokes: React.PropTypes.number,
+  getJokes: React.PropTypes.func,
+};
 
 export default DisplayJokes;
